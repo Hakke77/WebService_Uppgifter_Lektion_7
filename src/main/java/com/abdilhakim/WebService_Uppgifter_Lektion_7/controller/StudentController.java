@@ -28,7 +28,8 @@ public class StudentController {
 
     @GetMapping("/getstudentbyid/{id}")
     public ResponseEntity<Student> getStudentById(@PathVariable Long id) {
-        Optional<Student> student = studentRepository.findById(id);
+        Optional<Student> student = studentRepository.findStudentById(id);
+
         if (student.isPresent()) {
             return ResponseEntity.ok(student.get());
         } else {
